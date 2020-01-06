@@ -111,7 +111,7 @@ DATABASES = {
     }
 }
 
-if not DEBUG:
+if DEBUG == False:
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
 
@@ -133,7 +133,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-if not DEBUG:
+if DEBUG == False:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
 
@@ -159,7 +159,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "frontend/dist"),
 ]
 # absolute to the directory where collectstatic will collect static files for deployment
-if not DEBUG:
+if DEBUG == False:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
