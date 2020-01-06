@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block style %}
+    {% load static %}
+    <style>
+        html, body{
+            height: 100%;
+            font-family: "Playfair Display", serif;
+            background-image: url('{% static "images/background_img_question_time.png" %}');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .auth-box{
+            border: 3px solid lightgray;
+            border-radius: 10px;
+            background-color: white;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            width: 600px;
+            margin: auto;
+        }
+
+        .login-form-container {
+            width: 300px;
+            margin: auto;
+        }
+
+        .registration-form-container{
+            width: 400px;
+            margin: auto;
+        }
+        .outer-area{
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="outer-area">
+        <div class="auth-box text-center">
+            {% block auth %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
