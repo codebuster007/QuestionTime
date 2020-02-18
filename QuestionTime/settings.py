@@ -112,7 +112,7 @@ if not DEBUG:
 else:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.sql',
+            'ENGINE': 'django.db.backends.mysql',
             'NAME': os.path.join(BASE_DIR, 'questiondb'),
         }
     }
