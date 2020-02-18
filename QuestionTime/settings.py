@@ -102,12 +102,20 @@ WSGI_APPLICATION = 'QuestionTime.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if not DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sql',
+            'NAME': os.path.join(BASE_DIR, 'questiondb'),
+        }
+    }
 
 if not DEBUG:
     db_from_env = dj_database_url.config(conn_max_age=500)
